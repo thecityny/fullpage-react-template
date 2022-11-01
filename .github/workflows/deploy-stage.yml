@@ -8,9 +8,9 @@ on:
   workflow_dispatch:
   push:
     branches:
-      - '**' # always deploy for branches
+      - "**" # always deploy for branches
     tags-ignore:
-      - '**' # never deploy for tags
+      - "**" # never deploy for tags
 
 jobs:
   deploy:
@@ -88,7 +88,7 @@ jobs:
         with:
           bucket: ${{ secrets.AWS_S3_STAGING_BUCKET }}
           base-path: ${{ steps.delivery-path-prefix.outputs.result }}
-          dir: _dist
+          dir: build
           should-cache: true
           use-accelerate-endpoint: false
           public: true

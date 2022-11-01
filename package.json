@@ -1,7 +1,7 @@
 {
-  "name": "2022_10_voter-turnout-calculator",
+  "name": "the-city-news-app",
   "version": "0.1.0",
-  "homepage": "2022_10_voter-turnout-calculator",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.4",
