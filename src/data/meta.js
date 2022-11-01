@@ -21,5 +21,6 @@ export const meta = {
   seo_description: "This is not a search-engine optimized description",
   social_headline: "This is not a social headline",
   social_description: "This is not a social description",
-  social_image: "src/assets/images/baker.jpg",
+  // Place this image in the PUBLIC folder:
+  social_image: "baker.jpg",
 };
