@@ -1,5 +1,4 @@
 export const meta = {
-  slug: "react-example-page-template",
   site_name: "React Example",
   locale: "en_US",
   headline:
