@@ -1,0 +1,320 @@
+@import "_fonts.scss";
+
+$city-white: #ebebeb;
+$city-grey: #8c8c8c;
+$city-black: #111111;
+$city-orange: #fa7416;
+$city-purple: #a9328a;
+$city-green: #36c269;
+$city-blue: #0c71fa;
+$city-gold: #fcc32c;
+$city-politics-red: #d02d3c;
+$city-politics-red-light: #e5c5c7;
+$city-politics-blue: #214da5;
+$city-politics-blue-light: #c2cbdc;
+
+// SECTION 1:
+// Default App Theme
+
+$default-font: "Sharp Grotesk", Helvetica, sans-serif;
+
+body {
+  margin: 0;
+  padding: 1rem 0;
+}
+
+.app {
+  font-family: $default-font;
+  background-color: #ebebeb;
+
+  // Text:
+
+  .title {
+    font: 900 1.375rem $default-font;
+    color: #000;
+  }
+
+  .description {
+    font: 400 0.875rem $default-font;
+    color: #333;
+  }
+
+  .small-text {
+    font: 200 0.635rem $default-font;
+    color: #000;
+  }
+
+  .label {
+    font: 400 0.75rem $default-font;
+    color: #666;
+  }
+
+  .annotation {
+    font-size: 200 0.75rem $default-font;
+    color: #333;
+  }
+
+  // Colors:
+
+  .color-dem {
+    color: $city-politics-blue;
+  }
+
+  .color-rep {
+    color: $city-politics-red;
+  }
+
+  .color-grey {
+    color: $city-grey;
+  }
+}
+
+// SECTION 1:
+// Material UI Overrides
+
+.app {
+  > .title {
+    margin-bottom: 0rem;
+  }
+  > .description {
+    margin-top: 0rem;
+    line-height: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  /* Adds CSS3 animation */
+  .MuiSlider-thumb {
+    transition: left 1.5s;
+  }
+
+  /* Animating track with CSS3 as well */
+  .MuiSlider-track {
+    transition: width 1.5s;
+  }
+}
+
+// Election Data Selector:
+
+.MuiInputBase-formControl fieldset legend {
+  // this removes a special label on the input field we don't need
+  display: none;
+}
+
+.past-election-selector {
+  margin-left: 0.3rem;
+  .MuiSelect-select {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    padding-left: 0.5rem;
+  }
+}
+
+li.MuiMenuItem-root {
+  font: 400 0.875rem $default-font;
+  color: #333;
+}
+
+// Slider widgets:
+
+.slider-text {
+  text-align: center;
+  p:not(:last-child) {
+    margin-bottom: 0;
+  }
+  p:not(:first-child) {
+    margin-top: 0;
+  }
+}
+
+@mixin slider($type) {
+  padding: 0rem 0.5rem;
+
+  &.double-slider {
+    @if $type == dem {
+      background-color: $city-politics-blue-light;
+    } @else {
+      background-color: $city-politics-red-light;
+    }
+
+    .MuiSlider-thumb:before {
+      content: "↕";
+      color: $city-black;
+      animation: hover-up-and-down 0.9s ease-in-out infinite;
+      box-shadow: none;
+      margin-bottom: 1.25rem;
+      font-size: 1rem;
+      font-family: serif;
+      margin-left: 3.4rem;
+    }
+  }
+
+  @keyframes hover-up-and-down {
+    0% {
+      transform: translateY(2.5px);
+    }
+    50% {
+      transform: translateY(-2.5px);
+    }
+    100% {
+      transform: translateY(2.5px);
+    }
+  }
+
+  .MuiSlider-root {
+    border-radius: 3px;
+    width: 90%;
+    &.MuiSlider-vertical {
+      margin: 1rem;
+      width: unset;
+      .MuiSlider-track {
+        width: 15px;
+        border: none;
+        @if $type == dem {
+          color: $city-politics-red;
+        } @else {
+          color: $city-politics-blue;
+        }
+      }
+      .MuiSlider-rail {
+        width: 15px;
+        opacity: 1;
+        @if $type == dem {
+          color: $city-politics-blue;
+        } @else {
+          color: $city-politics-red;
+        }
+      }
+      .MuiSlider-thumb {
+        border-radius: 5%;
+        height: 5px;
+        width: 40px;
+      }
+    }
+  }
+
+  .MuiSlider-thumb {
+    color: #666;
+  }
+
+  .MuiSlider-track {
+    @if $type == dem {
+      color: $city-politics-blue;
+    } @else {
+      color: $city-politics-red;
+    }
+  }
+
+  .only-show-one-party .MuiSlider-rail {
+    color: $city-grey;
+  }
+
+  .MuiSlider-rail {
+    opacity: 1;
+    @if $type == dem {
+      color: $city-politics-red;
+    } @else {
+      color: $city-politics-blue;
+    }
+  }
+}
+
+.dem-slider {
+  @include slider(dem);
+}
+
+.rep-slider {
+  @include slider(rep);
+}
+
+@for $i from 1 through 100 {
+  .slider-position-#{$i} {
+    &.dem-slider .MuiSlider-rail {
+      background: linear-gradient(
+        180deg,
+        $city-politics-blue (100 - $i) * 1%,
+        $city-grey (100 - $i) * 1%
+      );
+    }
+
+    &.rep-slider .MuiSlider-rail {
+      background: linear-gradient(
+        180deg,
+        $city-politics-red (100 - $i) * 1%,
+        $city-grey (100 - $i) * 1%
+      );
+    }
+  }
+}
+
+// Election winner banner:
+
+.election-winner {
+  &.MuiGrid-root {
+    @media screen and (max-width: 600px) {
+      margin-top: 1.25rem;
+    }
+  }
+  h1 {
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+  }
+  p {
+    margin: 0.2rem;
+  }
+  img {
+    &.color-dem {
+      border: 5px solid $city-politics-blue;
+      animation: jiggle2 0.6s 1;
+    }
+    &.color-rep {
+      border: 5px solid $city-politics-red;
+      animation: jiggle 0.6s 1;
+    }
+  }
+}
+
+// Animations:
+
+@keyframes jiggle {
+  0% {
+    transform: rotate(-3deg);
+  }
+  16% {
+    transform: rotate(3deg);
+  }
+  33% {
+    transform: rotate(-2deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+  66% {
+    transform: rotate(-1deg);
+  }
+  84% {
+    transform: rotate(1deg);
+  }
+}
+
+@keyframes jiggle2 {
+  0% {
+    transform: rotate(-3deg);
+  }
+  16% {
+    transform: rotate(3deg);
+  }
+  33% {
+    transform: rotate(-2deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+  66% {
+    transform: rotate(-1deg);
+  }
+  84% {
+    transform: rotate(1deg);
+  }
+}
