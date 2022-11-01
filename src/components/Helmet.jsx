@@ -25,36 +25,38 @@ export const SiteMetadata = () => {
       <meta property="twitter:url" content={absoluteUrl} />
       <meta property="twitter:image" content={meta.social_image} />
       <meta property="twitter:card" content="summary_large_image" />
-      {/* <script type="application/ld+json">
-  {
-    "@context": "http://schema.org",
-    "@type": "NewsArticle",
-    "headline": "{{ meta.seo_headline }}",
-    "image": {
-      "@type": "ImageObject",
-      "contentUrl": "{% staticabsolute meta.social_image %}",
-      "url": "{% staticabsolute meta.social_image %}",
-      "representativeOfPage": true
-    },
-    "dateCreated": "{{ meta.pub_date|date("yyyy-MM-dd HH:mm:ss") }}",
-    "datePublished": "{{ meta.pub_date|date("yyyy-MM-dd HH:mm:ss") }}",
-    {% if meta.update_date %}
-    "dateModified": "{{ meta.update_date|date("yyyy-MM-dd HH:mm:ss") }}",
-    {% endif -%}
-    "mainEntityOfPage": "{{ page.absoluteUrl }}",
-    "description": "{{ meta.seo_description }}",
-    "publisher": {
-      "@type": "Organization",
-      "name": "{{ meta.site_name }}",
-      "url": "{{ DOMAIN }}",
-    },
-    "author": [{% for author in meta.byline %}{
-      {% if author.name %}"name": "{{ author.name }}",{% endif %}
-      {% if author.url %}"url": "{{ author.url }}",{% endif %}
-      "@type": "Person"
-    }{% if not loop.last %},{% endif %}{% endfor %}]
-  }
-  </script> */}
+      <script type="application/ld+json">
+        {`
+            {
+            "@context": "http://schema.org",
+            "@type": "NewsArticle",
+            "headline": "${meta.seo_headline}",
+            "image": {
+                "@type": "ImageObject",
+                "contentUrl": "${meta.social_image}",
+                "url": "${meta.social_image}",
+                "representativeOfPage": true,
+            },
+            "dateCreated":  "${meta.pub_date | new Date()}",
+            "datePublished":  "${meta.pub_date | new Date()}",
+            "dateModified":  "${meta.update_date | new Date()}",
+            "mainEntityOfPage":  "${absoluteUrl}",
+            "description":  "${meta.seo_description}",
+            "publisher": {
+                "@type": "Organization",
+                "name":  "${meta.site_name}",
+                "url": "https://www.thecity.nyc/",
+            },
+            "author": [ ${meta.byline.map(
+              (author) => `{
+                    "name": "${author.name}",
+                    "url": "${author.url}",
+                    "@type": "Person"
+                  }`
+            )}
+            ]
+        }`}
+      </script>
     </Helmet>
   );
 };
