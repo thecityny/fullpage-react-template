@@ -4,7 +4,7 @@ import { meta } from "../data/meta";
 
 export const SiteMetadata = () => {
   const absoluteUrl = window.location.href;
-  const socialImageUrl = `${absoluteUrl}/${meta.social_image}`;
+  const socialImageUrl = `${absoluteUrl}${meta.social_image}`;
   return (
     <Helmet>
       <html lang="en" />
