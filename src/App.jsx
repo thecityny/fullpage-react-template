@@ -4,8 +4,6 @@ import { Footer, Header } from "./components/HeaderFooter";
 import { SiteMetadata } from "./components/Helmet";
 import { meta } from "./data/meta";
 
-import "./styles/app.scss";
-
 export const App = () => (
   <HelmetProvider>
     <article>
