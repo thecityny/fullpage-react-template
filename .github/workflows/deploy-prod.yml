@@ -57,7 +57,7 @@ jobs:
             const archieml = require('archieml');
 
             // Read in the slug file
-            const meta = archieml.load(fs.readFileSync('_data/meta.aml', 'utf8'));
+            const meta = archieml.load(fs.readFileSync('deploy.aml', 'utf8'));
 
             // Pull the slug
             const slug = meta.slug.trim();
