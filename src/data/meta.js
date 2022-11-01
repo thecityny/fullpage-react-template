@@ -12,6 +12,10 @@ export const meta = {
       name: "This is not a name",
       url: "https://www.latimes.com/people/nobody",
     },
+    {
+      name: "This is not a name",
+      url: "https://www.latimes.com/people/nobody",
+    },
   ],
 
   pub_date: "2099-12-31 23:58:00",
