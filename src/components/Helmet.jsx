@@ -37,7 +37,7 @@ export const SiteMetadata = () => {
                 "@type": "ImageObject",
                 "contentUrl": "${socialImageUrl}",
                 "url": "${socialImageUrl}",
-                "representativeOfPage": true,
+                "representativeOfPage": true
             },
             "dateCreated":  "${meta.pub_date | new Date()}",
             "datePublished":  "${meta.pub_date | new Date()}",
@@ -47,7 +47,7 @@ export const SiteMetadata = () => {
             "publisher": {
                 "@type": "Organization",
                 "name":  "${meta.site_name}",
-                "url": "https://www.thecity.nyc/",
+                "url": "https://www.thecity.nyc/"
             },
             "author": [ ${meta.byline.map(
               (author) => `{
