@@ -4,6 +4,7 @@ import { meta } from "../data/meta";
 
 export const SiteMetadata = () => {
   const absoluteUrl = window.location.href;
+  const socialImageUrl = `${absoluteUrl}/${meta.social_image}`;
   return (
     <Helmet>
       <html lang="en" />
@@ -15,7 +16,7 @@ export const SiteMetadata = () => {
       <meta property="og:title" content={meta.social_headline} />
       <meta property="og:description" content={meta.social_description} />
       <meta property="og:url" content={absoluteUrl} />
-      <meta property="og:image" content={meta.social_image} />
+      <meta property="og:image" content={socialImageUrl} />
       <meta property="og:type" content="article" />
       <meta property="og:site_name" content={meta.site_name} />
       <meta property="og:locale" content={meta.locale} />
@@ -23,7 +24,7 @@ export const SiteMetadata = () => {
       <meta property="twitter:title" content={meta.social_headline} />
       <meta property="twitter:description" content={meta.social_description} />
       <meta property="twitter:url" content={absoluteUrl} />
-      <meta property="twitter:image" content={meta.social_image} />
+      <meta property="twitter:image" content={socialImageUrl} />
       <meta property="twitter:card" content="summary_large_image" />
       <script type="application/ld+json">
         {`
@@ -33,8 +34,8 @@ export const SiteMetadata = () => {
             "headline": "${meta.seo_headline}",
             "image": {
                 "@type": "ImageObject",
-                "contentUrl": "${meta.social_image}",
-                "url": "${meta.social_image}",
+                "contentUrl": "${socialImageUrl}",
+                "url": "${socialImageUrl}",
                 "representativeOfPage": true,
             },
             "dateCreated":  "${meta.pub_date | new Date()}",
