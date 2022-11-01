@@ -31,13 +31,13 @@ export const App = () => (
 
       <br />
 
-      <div class="container">
-        <p class="copy">
+      <div className="container">
+        <p className="copy">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
           pellentesque luctus magna sed auctor. Cras ullamcorper urna mattis
           lectus sagittis, quis vehicula dui vestibulum.
         </p>
-        <p class="copy">
+        <p className="copy">
           Aliquam sollicitudin libero vel diam cursus, ut egestas ex
           scelerisque. Nullam vestibulum metus interdum, dictum erat vel, luctus
           elit. Nullam aliquam ante elit, mollis aliquet nulla efficitur
