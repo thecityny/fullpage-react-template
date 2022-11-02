@@ -1,28 +1,32 @@
 import React from "react";
 import { HelmetProvider } from "react-helmet-async";
 import { Footer, Header } from "./components/HeaderFooter";
-import { SiteMetadata } from "./components/Helmet";
-import { meta } from "./data/meta";
 
 import "./styles/app.scss";
+
+const byline = [
+  {
+    name: "This is not a name",
+    url: "https://www.latimes.com/people/nobody",
+  },
+];
 
 export const App = () => (
   <HelmetProvider>
     <article>
-      <SiteMetadata />
       <Header />
       <div>
         <div className="container">
-          <h1 className="headline">{meta.headline}</h1>
+          <h1 className="headline">This is not a headline</h1>
           <div className="attribution">
             <p className="byline">
               By{" "}
-              {meta.byline.map((author, i) => (
+              {byline.map((author, i) => (
                 <span key={i} className="author">
                   <a href={author.url}>{author.name}</a>
-                  {i < meta.byline.length - 2
+                  {i < byline.length - 2
                     ? ", "
-                    : i < meta.byline.length - 1
+                    : i < byline.length - 1
                     ? " and "
                     : ""}
                 </span>
