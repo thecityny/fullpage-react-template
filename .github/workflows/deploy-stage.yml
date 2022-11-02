@@ -46,6 +46,11 @@ jobs:
         with:
           result-encoding: string
           script: |
+            // Print out production slug:
+            const slug_env = process.env.REACT_APP_SLUG;
+            const slug = meta.slug_env.trim();
+            console.log(`slug -> ${slug}`);
+
             // import path module
             const path = require('path');
 

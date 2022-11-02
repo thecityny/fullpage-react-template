@@ -51,12 +51,13 @@ jobs:
         uses: actions/github-script@v4
         with:
           result-encoding: string
+
           script: |
             // import modules
             const fs = require('fs');
 
             // Pull the slug
-            const slug_env = ${{ env.REACT_APP_SLUG }};
+            const slug_env = process.env.REACT_APP_SLUG;
             const slug = meta.slug_env.trim();
             console.log(`slug -> ${slug}`);
 
