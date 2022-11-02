@@ -54,13 +54,10 @@ jobs:
           script: |
             // import modules
             const fs = require('fs');
-            const archieml = require('archieml');
-
-            // Read in the slug file
-            const meta = archieml.load(fs.readFileSync('deploy.aml', 'utf8'));
 
             // Pull the slug
-            const slug = meta.slug.trim();
+            const slug_env = ${{ env.REACT_APP_SLUG }}
+            const slug = meta.slug_env.trim();
             console.log(`slug -> ${slug}`);
 
             // If we get this far, we're good to go.
