@@ -48,7 +48,7 @@ jobs:
           script: |
             // Print out production slug:
             const slug_env = process.env.REACT_APP_SLUG;
-            const slug = meta.slug_env.trim();
+            const slug = slug_env.trim();
             console.log(`slug -> ${slug}`);
 
             // import path module
