@@ -46,6 +46,9 @@ jobs:
         with:
           result-encoding: string
           script: |
+            // import modules
+            require('dotenv').config();
+
             // Print out production slug:
             const slug_env = process.env.REACT_APP_SLUG;
             const slug = slug_env.trim();
