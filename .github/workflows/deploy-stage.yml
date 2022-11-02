@@ -17,11 +17,11 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
     steps:
-      - name: Load .env file
-        uses: xom9ikk/dotenv@v2
-
       - name: Checkout the repo
         uses: actions/checkout@v2
+
+      - name: Load .env file
+        uses: xom9ikk/dotenv@v2
 
       - name: Use Node.js 14.x
         uses: actions/setup-node@v2
