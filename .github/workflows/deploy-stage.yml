@@ -51,7 +51,7 @@ jobs:
           script: |
             // Print out production slug:
             const slug = `${{ env.REACT_APP_SLUG }}`;
-            console.log(`slug -> ${slug}`);
+            console.log(`production slug will be -> ${slug.trim()}`);
 
             // import path module
             const path = require('path');
