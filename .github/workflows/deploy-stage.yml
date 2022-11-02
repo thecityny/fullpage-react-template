@@ -22,11 +22,6 @@ jobs:
 
       - name: Load .env file
         uses: xom9ikk/dotenv@v2
-        with:
-          script: |
-            // Print out production slug:
-            const slug_env = ${{ env.REACT_APP_SLUG }};
-            console.log(`slug -> ${slug}`);
 
       - name: Use Node.js 14.x
         uses: actions/setup-node@v2
@@ -54,6 +49,10 @@ jobs:
         with:
           result-encoding: string
           script: |
+            // Print out production slug:
+            const slug = ${{ env.REACT_APP_SLUG }};
+            console.log(`slug -> ${slug}`);
+
             // import path module
             const path = require('path');
 
