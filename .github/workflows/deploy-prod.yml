@@ -56,7 +56,7 @@ jobs:
             const fs = require('fs');
 
             // Pull the slug
-            const slug_env = ${{ env.REACT_APP_SLUG }}
+            const slug_env = ${{ env.REACT_APP_SLUG }};
             const slug = meta.slug_env.trim();
             console.log(`slug -> ${slug}`);
 
