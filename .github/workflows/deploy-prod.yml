@@ -55,6 +55,7 @@ jobs:
           script: |
             // import modules
             const fs = require('fs');
+            require('dotenv').config();
 
             // Pull the slug
             const slug_env = process.env.REACT_APP_SLUG;
