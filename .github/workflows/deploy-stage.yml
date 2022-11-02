@@ -50,7 +50,7 @@ jobs:
           result-encoding: string
           script: |
             // Print out production slug:
-            const slug = ${{ env.REACT_APP_SLUG }};
+            const slug = `${{ env.REACT_APP_SLUG }}`;
             console.log(`slug -> ${slug}`);
 
             // import path module
