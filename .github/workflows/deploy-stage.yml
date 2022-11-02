@@ -17,6 +17,9 @@ jobs:
     name: Deploy
     runs-on: ubuntu-latest
     steps:
+      - name: Load .env file
+        uses: xom9ikk/dotenv@v2
+
       - name: Checkout the repo
         uses: actions/checkout@v2
 
@@ -46,11 +49,8 @@ jobs:
         with:
           result-encoding: string
           script: |
-            // import modules
-            require('dotenv').config();
-
             // Print out production slug:
-            const slug_env = process.env.REACT_APP_SLUG;
+            const slug_env = ${{ env.REACT_APP_SLUG }};
             const slug = slug_env.trim();
             console.log(`slug -> ${slug}`);
 
