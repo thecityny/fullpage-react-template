@@ -18,6 +18,9 @@ jobs:
         name: Checkout the repo
         uses: actions/checkout@v2
 
+      - name: Load .env file
+        uses: xom9ikk/dotenv@v2
+
       - id: install-node
         name: Use Node.js 14.x
         uses: actions/setup-node@v2
@@ -53,17 +56,12 @@ jobs:
           result-encoding: string
 
           script: |
-            // import modules
-            const fs = require('fs');
-            require('dotenv').config();
-
             // Pull the slug
-            const slug_env = process.env.REACT_APP_SLUG;
-            const slug = slug_env.trim();
+            const slug = `${{ env.REACT_APP_SLUG }}`;
             console.log(`slug -> ${slug}`);
 
             // If we get this far, we're good to go.
-            return meta.slug;
+            return slug.trim();
 
       - id: npm-build
         name: Build project distribution

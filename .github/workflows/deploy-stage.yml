@@ -20,6 +20,9 @@ jobs:
       - name: Checkout the repo
         uses: actions/checkout@v2
 
+      - name: Load .env file
+        uses: xom9ikk/dotenv@v2
+
       - name: Use Node.js 14.x
         uses: actions/setup-node@v2
         with:
@@ -47,9 +50,8 @@ jobs:
           result-encoding: string
           script: |
             // Print out production slug:
-            const slug_env = process.env.REACT_APP_SLUG;
-            const slug = slug_env.trim();
-            console.log(`slug -> ${slug}`);
+            const slug = `${{ env.REACT_APP_SLUG }}`;
+            console.log(`production slug will be -> ${slug.trim()}`);
 
             // import path module
             const path = require('path');
