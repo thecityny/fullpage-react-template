@@ -101,8 +101,7 @@ jobs:
         run: pip install pytest-check-links
 
       - name: Check links
-        run: pytest ./build --check-links \
-           --check-links-ignore "/"
+        run: pytest ./build -p no:cacheprovider --check-links --check-links-ignore "/"
 
   validate-lighthouse:
     runs-on: ubuntu-latest
