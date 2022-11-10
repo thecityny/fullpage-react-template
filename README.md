@@ -1,4 +1,4 @@
-# 2022 Governor's Race: Voter Turnout Calculator
+# Full-page React template for THE CITY News Apps
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
