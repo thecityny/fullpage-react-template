@@ -45,6 +45,15 @@ jobs:
             // If we get this far, we're good to go.
             return slug.trim();
 
+      - id: slack
+        name: Create Slack notification
+        uses: datadesk/notify-slack-on-build@master
+        with:
+          slack-token: ${{ secrets.BAKER_BOT_SLACK_TOKEN }}
+          channel-name: ${{ secrets.BAKER_BOT_SLACK_CHANNEL }}
+          status: in_progress
+          url: https://projects.thecity.nyc/${{ steps.get-slug.outputs.result }}/
+
       - id: npm-build
         name: Build project distribution
         run: npm run build
@@ -64,6 +73,7 @@ jobs:
         env:
           DISTRIBUTION: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION }}
           PATHS: ${{ format('/{0}/*', steps.get-slug.outputs.result) }}
+
       - id: npm-deploy
         name: Upload the prepared files
         uses: datadesk/delivery-deploy-action@master
@@ -74,3 +84,23 @@ jobs:
           should-cache: true
           use-accelerate-endpoint: false
           public: true
+
+      - name: Update Slack notification (success)
+        if: success()
+        uses: datadesk/notify-slack-on-build@master
+        with:
+          slack-token: ${{ secrets.BAKER_BOT_SLACK_TOKEN }}
+          channel-id: ${{ steps.slack.outputs.channel-id }}
+          status: success
+          url: https://projects.thecity.nyc/${{ steps.get-slug.outputs.result }}/
+          message-id: ${{ steps.slack.outputs.message-id }}
+
+      - name: Update Slack notification (failure)
+        if: failure()
+        uses: datadesk/notify-slack-on-build@master
+        with:
+          slack-token: ${{ secrets.BAKER_BOT_SLACK_TOKEN }}
+          channel-id: ${{ steps.slack.outputs.channel-id }}
+          status: failure
+          url: https://projects.thecity.nyc/${{ steps.get-slug.outputs.result }}/
+          message-id: ${{ steps.slack.outputs.message-id }}
