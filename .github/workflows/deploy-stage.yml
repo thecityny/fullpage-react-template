@@ -28,7 +28,7 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'npm'
+          cache: "npm"
 
       - name: npm install
         run: npm ci --production
@@ -68,7 +68,7 @@ jobs:
           PATHS: ${{ format('/{0}/*', steps.delivery-path-prefix.outputs.result) }}
 
       - name: Prepare the Delivery path prefix
-        uses: actions/github-script@v3
+        uses: actions/github-script@v6
         id: delivery-path-prefix
         with:
           result-encoding: string

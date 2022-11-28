@@ -34,10 +34,9 @@ jobs:
 
       - id: get-slug
         name: Get slug
-        uses: actions/github-script@v4
+        uses: actions/github-script@v6
         with:
           result-encoding: string
-
           script: |
             // Pull the slug
             const slug = `${{ env.REACT_APP_SLUG }}`;
