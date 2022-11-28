@@ -43,6 +43,48 @@ jobs:
           path: ./build
           if-no-files-found: error
 
+  validate-hyperlinks:
+    runs-on: ubuntu-latest
+    name: Validate hyperlinks
+    needs: [build]
+    continue-on-error: true
+
+    steps:
+      - name: Download build
+        uses: actions/download-artifact@v3
+        with:
+          name: build
+          path: ./build
+
+      - name: Install link check dependencies
+        run: pip install pytest-check-links pytest-custom_exit_code
+
+      - name: Check links
+        run: pytest ./build --suppress-no-test-exit-code -p no:cacheprovider --check-links --check-links-ignore "/"
+
+  validate-lighthouse:
+    runs-on: ubuntu-latest
+    name: Validate with Lighthouse
+    needs: [build]
+    continue-on-error: true
+
+    steps:
+      - name: Fetch repository for `lighthouserc.json`
+        uses: actions/checkout@v3
+
+      - name: Download build
+        uses: actions/download-artifact@v3
+        with:
+          name: build
+          path: ./build
+
+      - name: Audit with Lighthouse
+        uses: treosh/lighthouse-ci-action@v9
+        with:
+          configPath: ".github/workflows/lighthouserc.json"
+          temporaryPublicStorage: true
+          uploadArtifacts: true
+
   deploy:
     name: Deploy
     runs-on: ubuntu-latest

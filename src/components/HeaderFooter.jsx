@@ -79,7 +79,6 @@ export const Footer = () => {
               Republishing
             </a>
           </li>
-          <br />
           <li>
             <a href="https://thecity.nyc/about/contact-us.html">Contact</a>
           </li>
