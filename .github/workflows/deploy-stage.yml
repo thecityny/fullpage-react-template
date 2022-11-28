@@ -18,64 +18,23 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Load .env file
         uses: xom9ikk/dotenv@v2
 
-      - name: Use Node.js 14.x
-        uses: actions/setup-node@v2
+      - id: install-node
+        name: Install Node.js 16.x
+        uses: actions/setup-node@v3
         with:
-          node-version: 14
-
-      - name: Use npm v7
-        run: npm install --global npm@7
-
-      - name: Cache node modules
-        uses: actions/cache@v2
-        with:
-          path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
-          key: ${{ runner.os }}-build-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
+          node-version: 16
+          cache: "npm"
 
       - name: npm install
         run: npm ci --production
 
-      - name: Prepare the Delivery path prefix
-        uses: actions/github-script@v3
-        id: delivery-path-prefix
-        with:
-          result-encoding: string
-          script: |
-            // Print out production slug:
-            const slug = `${{ env.REACT_APP_SLUG }}`;
-            console.log(`production slug will be -> ${slug.trim()}`);
-
-            // import path module
-            const path = require('path');
-
-            // get reference to this commit
-            const ref = context.ref;
-
-            // get repo that triggered this push
-            const { repo } = context.repo;
-
-            // pull branch name off the ref
-            const parts = ref.split('/');
-            const branch = parts[parts.length - 1];
-
-            // build path used for this deploy
-            const basePath = path.join(repo, branch);
-
-            // return the prepared path as the output
-            return basePath;
-
       - name: Build the project
         run: npm run build
-        env:
-          PATH_PREFIX: ${{ steps.delivery-path-prefix.outputs.result }}
 
       - name: Upload build
         uses: actions/upload-artifact@v3
@@ -149,6 +108,35 @@ jobs:
         env:
           DISTRIBUTION: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION }}
           PATHS: ${{ format('/{0}/*', steps.delivery-path-prefix.outputs.result) }}
+
+      - name: Prepare the Delivery path prefix
+        uses: actions/github-script@v6
+        id: delivery-path-prefix
+        with:
+          result-encoding: string
+          script: |
+            // Print out production slug:
+            const slug = `${{ env.REACT_APP_SLUG }}`;
+            console.log(`production slug will be -> ${slug.trim()}`);
+
+            // import path module
+            const path = require('path');
+
+            // get reference to this commit
+            const ref = context.ref;
+
+            // get repo that triggered this push
+            const { repo } = context.repo;
+
+            // pull branch name off the ref
+            const parts = ref.split('/');
+            const branch = parts[parts.length - 1];
+
+            // build path used for this deploy
+            const basePath = path.join(repo, branch);
+
+            // return the prepared path as the output
+            return basePath;
 
       - name: Upload the prepared files
         uses: datadesk/delivery-deploy-action@master
