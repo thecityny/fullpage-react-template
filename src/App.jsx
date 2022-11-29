@@ -7,9 +7,16 @@ import "./styles/app.scss";
 
 export const App = () => (
   <Router>
-    <Routes>{/* The Routes component decides which component to show based on the current URL.*/}
-      <Route path='/' element={<Homepage />} />
-      <Route path='/page/:customPath' element={<ExamplePage />} />
+    <Routes>
+      {/* The Routes component decides which component to show based on the current URL.*/}
+      <Route
+        path="/fullpage-react-template/multipage/"
+        element={<Homepage />}
+      />
+      <Route
+        path="/fullpage-react-template/multipage/page/:customPath"
+        element={<ExamplePage />}
+      />
     </Routes>
   </Router>
 );

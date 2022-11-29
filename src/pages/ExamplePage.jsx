@@ -12,15 +12,18 @@ export const ExamplePage = () => {
   return (
     <PageLayout>
       <Helmet>
-        {/* Custom page metadata (such as page title or description) goes here:  */}
+        {/* Custom page metadata (such as page title or description) goes here: */}
         <title>Page: {customPath}</title>
       </Helmet>
       <div>
         <div className="container">
           <h1 className="headline">Example Secondary Page</h1>
-          <p className="deck">This page can have any dynamic url! Right now, it's found at <code>/{customPath}</code></p>
+          <p className="deck">
+            This page can have any dynamic url! Right now, it's found at{" "}
+            <code>/{customPath}</code>
+          </p>
         </div>
       </div>
     </PageLayout>
   );
-}
+};
