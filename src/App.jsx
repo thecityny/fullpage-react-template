@@ -6,6 +6,6 @@ import { Homepage } from "./pages/Homepage";
 import "./styles/app.scss";
 
 export const App = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   return !!searchParams.get("customPath") ? <ExamplePage /> : <Homepage />;
 };
