@@ -1,6 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import { PageLayout } from "../components/PageLayout";
 
 /**
@@ -8,7 +8,8 @@ import { PageLayout } from "../components/PageLayout";
  * and dynamic page metadata. It can also reference the url parameter values within the component.
  */
 export const ExamplePage = () => {
-  const { customPath } = useParams();
+  const [searchParams, setSearchParams] = useSearchParams();
+  const customPath = searchParams.get("customPath");
   return (
     <PageLayout>
       <Helmet>
