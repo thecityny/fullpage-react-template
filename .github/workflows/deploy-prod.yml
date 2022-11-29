@@ -50,7 +50,8 @@ jobs:
         uses: datadesk/notify-slack-on-build@master
         with:
           slack-token: ${{ secrets.BAKER_BOT_SLACK_TOKEN }}
-          channel-name: ${{ secrets.BAKER_BOT_SLACK_CHANNEL }}
+          channel-name: |
+            ${{ secrets.BAKER_BOT_SLACK_CHANNEL }}
           status: in_progress
           url: https://projects.thecity.nyc/${{ steps.get-slug.outputs.result }}/
 
