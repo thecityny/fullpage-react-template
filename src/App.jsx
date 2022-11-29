@@ -14,7 +14,7 @@ export const App = () => (
         element={<Homepage />}
       />
       <Route
-        path="/fullpage-react-template/multipage/page/:customPath"
+        path="/fullpage-react-template/multipage/:customPath"
         element={<ExamplePage />}
       />
     </Routes>
