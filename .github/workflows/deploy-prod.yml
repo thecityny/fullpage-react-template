@@ -35,7 +35,7 @@ jobs:
 
       - id: validate-metadata
         name: Validate metadata
-        if: github.repository != 'palewire/fullpage-react-template'
+        if: github.repository != 'thecityny/fullpage-react-template'  # Skip this step when we're on the base template
         run: npm run validate
         shell: bash
 
