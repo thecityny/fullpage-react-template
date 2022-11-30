@@ -35,8 +35,11 @@ jobs:
 
       - id: validate-metadata
         name: Validate metadata
+        if: github.repository != 'palewire/fullpage-react-template'
         run: npm run validate
         shell: bash
+
+GITHUB_REPOSITORY
 
   deploy:
     name: Deploy
