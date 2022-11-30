@@ -6,7 +6,7 @@ import { ReactComponent as TwitterIcon } from "../assets/images/social-icons/twi
 import { ReactComponent as InstagramIcon } from "../assets/images/social-icons/instagram.svg";
 import { ReactComponent as FacebookIcon } from "../assets/images/social-icons/facebook.svg";
 
-export const Header = () => (
+const Header = () => (
   <nav className="nav">
     <div className="nav-container">
       <div className="nav-logo">
@@ -24,7 +24,7 @@ export const Header = () => (
   </nav>
 );
 
-export const Footer = () => {
+const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
@@ -79,7 +79,6 @@ export const Footer = () => {
               Republishing
             </a>
           </li>
-          <br />
           <li>
             <a href="https://thecity.nyc/about/contact-us.html">Contact</a>
           </li>
@@ -104,3 +103,13 @@ export const Footer = () => {
     </footer>
   );
 };
+
+export const PageLayout: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => (
+  <article>
+    <Header />
+    {children}
+    <Footer />
+  </article>
+);
