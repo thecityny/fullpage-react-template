@@ -22,8 +22,8 @@ export const Homepage = () => (
                 {i < byline.length - 2
                   ? ", "
                   : i < byline.length - 1
-                    ? " and "
-                    : ""}
+                  ? " and "
+                  : ""}
               </span>
             ))}
           </p>
@@ -39,10 +39,10 @@ export const Homepage = () => (
           lectus sagittis, quis vehicula dui vestibulum.
         </p>
         <p className="copy">
-          Aliquam sollicitudin libero vel diam cursus, ut egestas ex scelerisque.
-          Nullam vestibulum metus interdum, dictum erat vel, luctus elit. Nullam
-          aliquam ante elit, mollis aliquet nulla efficitur molestie. Praesent a
-          tempus mi.
+          Aliquam sollicitudin libero vel diam cursus, ut egestas ex
+          scelerisque. Nullam vestibulum metus interdum, dictum erat vel, luctus
+          elit. Nullam aliquam ante elit, mollis aliquet nulla efficitur
+          molestie. Praesent a tempus mi.
         </p>
       </div>
     </div>

@@ -104,8 +104,12 @@ const Footer = () => {
   );
 };
 
-export const PageLayout = ({ children }) => <article>
-  <Header />
-  {children}
-  <Footer />
-</article>
+export const PageLayout: React.FC<{ children: React.ReactNode }> = ({
+  children,
+}) => (
+  <article>
+    <Header />
+    {children}
+    <Footer />
+  </article>
+);
