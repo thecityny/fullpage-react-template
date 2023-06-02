@@ -103,12 +103,6 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_S3_STAGING_REGION }}
 
-      - name: Invalidate CloudFront (clear cache)
-        uses: chetan/invalidate-cloudfront-action@v2
-        env:
-          DISTRIBUTION: ${{ secrets.AWS_CLOUDFRONT_DISTRIBUTION }}
-          PATHS: ${{ format('/{0}/*', steps.delivery-path-prefix.outputs.result) }}
-
       - name: Prepare the Delivery path prefix
         uses: actions/github-script@v6
         id: delivery-path-prefix
@@ -137,6 +131,12 @@ jobs:
 
             // return the prepared path as the output
             return basePath;
+
+      - name: Invalidate CloudFront (clear cache)
+        uses: chetan/invalidate-cloudfront-action@v2
+        env:
+          DISTRIBUTION: ${{ secrets.AWS_STAGING_CLOUDFRONT_DISTRIBUTION }}
+          PATHS: ${{ format('/{0}/*', steps.delivery-path-prefix.outputs.result) }}
 
       - name: Upload the prepared files
         uses: datadesk/delivery-deploy-action@v1
