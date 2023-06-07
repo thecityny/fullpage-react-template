@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Creating a new page
+## 🚀 Creating a new app
 
 The first step is to click GitHub’s “use this template” button to a make a copy of the repository for yourself.
 
