@@ -4,6 +4,8 @@
 
 This template is what we use to create single-page interactive projects, and it is bootstrapped with [Create React App](https://github.com/facebook/create-react-app). The deployment process is based in part on the [Baker Rig](https://github.com/datadesk/baker) project by the L.A. Times.
 
+If you're looking to build an app with multiple pages, you may want to check out our [Multi-page Gatsby Template](https://github.com/thecityny/multipage-gatsby-template) instead.
+
 ## 🚀 Getting started
 
 The first step is to click GitHub’s “use this template” button to a make a copy of the repository for yourself.
