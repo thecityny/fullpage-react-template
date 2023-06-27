@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## 🚀 Creating a new app
+## 🚀 Getting started
 
 The first step is to click GitHub’s “use this template” button to a make a copy of the repository for yourself.
 
@@ -32,6 +32,12 @@ npm start
 
 Now go to `localhost:3000` in your browser. You should see a boilerplate page ready for your customizations.
 
+## Using this template
+
+This code is free and open source and you are permitted to use for your own projects under the [MIT License](LICENSE) included in this repository. However, before deploying anything publicly using this codebase, you must:
+
+- Change [`_fonts/scss`](src/styles/_fonts.scss) — our fonts are proprietary and are not permitted for use outside of THE CITY's domain. Please change these fonts to ones you own publishing rights to, or use free, web-safe fonts instead.
+- Remove [`logo.svg`](src/assets/images/logo.svg) — our logo is trademarked and cannot be used without THE CITY's explicit permission. Please remove this logo [from the header](src/components/PageLayout.tsx), or swap in your own logo.
 
 ## Available Scripts
 
