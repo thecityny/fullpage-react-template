@@ -1,8 +1,8 @@
 # THE CITY's Full-page React Template for News Apps
 
-[THE CITY](https://www.thecity.nyc/pages/about) is a nonprofit, nonpartisan, digital news platform dedicated to hard-hitting reporting that serves the people of New York. We publish news apps and data graphics regularly, and we try and open source as much of our code as we can so that the public can use it. You can check out a list of our recent projects on [THE CITY Products Page](https://projects.thecity.nyc/all-projects/).
+[THE CITY](https://www.thecity.nyc/pages/about) is a nonprofit, nonpartisan, digital newsroom dedicated to hard-hitting reporting that serves the people of New York. We publish news apps and data graphics regularly, and we try and open source as much of our code as we can so that others can use it. You can check out a list of our recent projects on [THE CITY Projects Page](https://projects.thecity.nyc/all-projects/).
 
-This template is what we use to create single-page apps, and it is bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This template is what we use to create single-page interactive projects, and it is bootstrapped with [Create React App](https://github.com/facebook/create-react-app). The deployment process is based in part on the [Baker Rig](https://github.com/datadesk/baker) project by the L.A. Times.
 
 ## 🚀 Getting started
 
@@ -44,7 +44,7 @@ This code is free and open source and you are permitted to use for your own proj
 Also, as part of our license, we require that any online publication of work built using this software **include a credit and
 link to THE CITY**. The template includes the suggested sentence “Made with ♥ in NYC by THE CITY” in the page footer — feel free to leave that in.
 
-Lastly, we want to hear from you! While not required, we'd love to know if you are utilizing this code for your own work. Drop us a line at [data@thecity.nyc](mailto:data@thecity.nyc).
+Lastly, we want to hear from you! We'd love to know if you are using this code to publish your own projects. Drop us a line at [data@thecity.nyc](mailto:data@thecity.nyc).
 
 ## Available Scripts
 
