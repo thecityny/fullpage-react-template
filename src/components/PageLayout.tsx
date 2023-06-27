@@ -30,7 +30,7 @@ const Footer = () => {
     <footer className="container">
       <div className="footer">
         <div className="footer-credit">
-          Made with ♥ by the team at{" "}
+          Made with ♥ by{" "}
           <a href="https://thecity.nyc/" aria-label="THE CITY">
             THE CITY
           </a>
