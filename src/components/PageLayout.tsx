@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import pym from "pym.js";
 
 import { ReactComponent as Logo } from "../assets/images/logo.svg";
 import { ReactComponent as TwitterIcon } from "../assets/images/social-icons/twitter.svg";
@@ -26,9 +27,22 @@ const Header = () => (
 const Footer = () => {
   const year = new Date().getFullYear();
 
+  useEffect(() => {
+    const pymParent = new pym.Parent(
+      "donation-box",
+      "https://projects.thecity.nyc/donation-form/",
+      {}
+    );
+    pymParent.onMessage("", () => {});
+  }, []);
+
   return (
-    <footer className="container">
-      <div className="footer">
+    <footer className="footer">
+      <div className="donation-box-container">
+        <div id="donation-box" />
+      </div>
+
+      <div className="container">
         <div className="footer-credit">
           Made with ♥ in NYC by{" "}
           <a href="https://thecity.nyc/" aria-label="THE CITY">
@@ -89,8 +103,10 @@ const Footer = () => {
           </li>
         </ul>
         <div className="copyright">
-          © {year}, THE CITY REPORT, INC. All Rights Reserved. Prouldy powered
-          by Newspack by Automattic
+          © {year}, THE CITY REPORT, INC. All Rights Reserved.{" "}
+          <a href="https://newspack.com/">
+            Prouldy powered by Newspack by Automattic
+          </a>
         </div>
       </div>
     </footer>
