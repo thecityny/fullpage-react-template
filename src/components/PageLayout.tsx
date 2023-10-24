@@ -60,45 +60,38 @@ const Footer = () => {
         </div>
         <ul className="footer-links">
           <li>
-            <a href="https://thecity.nyc/about/us.html">About</a>
+            <a href="https://www.thecity.nyc/about-us/">About</a>
           </li>
           <li>
-            <a href="https://thecity.nyc/about/membership.html">Donate</a>
+            <a href="https://donorbox.org/nycdonate">Donate</a>
           </li>
           <li>
-            <a href="https://thecity.nyc/about/team.html">Team</a>
+            <a href="https://www.thecity.nyc/team/">Team</a>
           </li>
           <li>
-            <a href="https://thecity.nyc/about/supporters.html">Funders</a>
+            <a href="https://www.thecity.nyc/funders/">Funders</a>
           </li>
           <li>
-            <a href="https://thecity.nyc/about/ethics.html">Ethics</a>
+            <a href="https://www.thecity.nyc/ethics/">Ethics</a>
           </li>
           <li>
-            <a href="https://thecity.nyc/about/republish-our-work.html">
-              Republishing
-            </a>
+            <a href="https://www.thecity.nyc/republishing/">Republish</a>
+          </li>
+          <br />
+          <li>
+            <a href="https://www.thecity.nyc/contact/">Contact</a>
           </li>
           <li>
-            <a href="https://thecity.nyc/about/contact-us.html">Contact</a>
+            <a href="https://www.thecity.nyc/privacy-policy/">Terms of Use</a>
           </li>
           <li>
-            <a href="https://www.thecity.nyc/legal/terms-of-use">
-              Terms of Use
-            </a>
-          </li>
-          <li>
-            <a href="https://www.thecity.nyc/legal/privacy-notice">
-              Privacy Notice
-            </a>
-          </li>
-          <li>
-            <a href="https://www.thecity.nyc/legal/cookie-policy">
-              Cookie Policy
-            </a>
+            <a href="https://www.thecity.nyc/privacy-policy/">Privacy Notice</a>
           </li>
         </ul>
-        <div className="copyright">© {year}, THE CITY. All Rights Reserved</div>
+        <div className="copyright">
+          © {year}, THE CITY REPORT, INC. All Rights Reserved. Prouldy powered
+          by Newspack by Automattic
+        </div>
       </div>
     </footer>
   );
