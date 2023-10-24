@@ -22,5 +22,6 @@
     "noUnusedLocals": true,
     "allowSyntheticDefaultImports": true
   },
+  "lib": ["es2016"],
   "exclude": ["node_modules", "build", ".github"]
 }

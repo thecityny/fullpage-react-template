@@ -24,10 +24,10 @@ jobs:
         uses: xom9ikk/dotenv@v2
 
       - id: install-node
-        name: Install Node.js 18.x
+        name: Install Node.js 16.x
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 16
           cache: "npm"
 
       - name: npm install
