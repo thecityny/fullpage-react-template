@@ -22,11 +22,11 @@ jobs:
         uses: xom9ikk/dotenv@v2
 
       - id: install-node
-        name: Install Node.js 16.x
+        name: Install Node.js 18.x
         uses: actions/setup-node@v3
         with:
-          node-version: 16
-          cache: 'npm'
+          node-version: 18
+          cache: "npm"
 
       - id: install-project-modules
         name: Install project dependencies
@@ -35,7 +35,7 @@ jobs:
 
       - id: validate-metadata
         name: Validate metadata
-        if: github.repository != 'thecityny/fullpage-react-template'  # Skip this step when we're on the base template
+        if: github.repository != 'thecityny/fullpage-react-template' # Skip this step when we're on the base template
         run: npm run validate
         shell: bash
 
@@ -52,11 +52,11 @@ jobs:
         uses: xom9ikk/dotenv@v2
 
       - id: install-node
-        name: Install Node.js 16.x
+        name: Install Node.js 18.x
         uses: actions/setup-node@v3
         with:
-          node-version: 16
-          cache: 'npm'
+          node-version: 18
+          cache: "npm"
 
       - id: install-project-modules
         name: Install project dependencies
