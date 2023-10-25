@@ -131,11 +131,12 @@ body {
 }
 
 .byline {
-  @include boldface();
+  @include medface();
+  font-weight: 500;
   text-align: center;
-  font-size: 17px;
-  letter-spacing: 0.57px;
-  color: #666;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 1.794px;
   margin: 8px 0;
 
   a,
@@ -143,14 +144,9 @@ body {
   a:active,
   a:focus,
   a:visited {
+    font-weight: 700;
     color: inherit;
     text-decoration: none;
-  }
-
-  a:hover,
-  a:active,
-  a:focus {
-    border-bottom: 1px solid $city-blue;
   }
 }
 
@@ -269,13 +265,23 @@ body {
 
 .footer {
   margin-top: 77px;
-  padding-top: 17px;
-  border-top: 1px solid #bdbdbd;
+  background-color: $city-light-grey;
+
+  .donation-box-container {
+    background-color: $city-gold;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    > div {
+      width: 728px;
+      max-width: 100%;
+    }
+  }
 }
 
 .footer-credit {
   text-align: center;
-  margin: 1rem 0 2rem 0;
+  margin: 2rem 0;
   text-transform: uppercase;
   font-size: 14px;
   letter-spacing: 2px;
@@ -365,7 +371,7 @@ body {
   a:active,
   a:focus,
   a:visited {
-    color: #000;
+    color: $city-blue;
     text-decoration: none;
   }
 
@@ -382,8 +388,12 @@ body {
   text-transform: uppercase;
   font-size: 9px;
   letter-spacing: 3px;
-  line-height: 25px;
-  margin-bottom: 27px;
+  line-height: 20px;
+  padding-bottom: 27px;
+  a {
+    color: $city-black;
+    text-decoration: none;
+  }
 }
 
 @media screen and (min-width: 740px) {
@@ -396,7 +406,6 @@ body {
 @media screen and (min-width: 1180px) {
   .footer {
     margin-top: 60px;
-    padding-top: 42px;
   }
 
   .footer-links li {

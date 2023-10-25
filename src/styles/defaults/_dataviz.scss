@@ -195,12 +195,12 @@
     color: #333;
     border-radius: 0;
 
-    &[type='checkbox'] {
+    &[type="checkbox"] {
       vertical-align: middle;
       margin-right: 10px;
     }
-    &[type='number']::-webkit-inner-adjust-hue-button,
-    &[type='number']::-webkit-outer-adjust-hue-button {
+    &[type="number"]::-webkit-inner-adjust-hue-button,
+    &[type="number"]::-webkit-outer-adjust-hue-button {
       opacity: 1;
     }
   }
@@ -302,8 +302,8 @@
     position: relative;
 
     &.limited::after {
-      content: '';
-      display: 'block';
+      content: "";
+      display: "block";
       position: absolute;
       bottom: 0;
       left: 0;
@@ -339,7 +339,7 @@
         text-decoration: underline;
       }
       &.asc::after {
-        content: '\25B2';
+        content: "\25B2";
         display: inline-block;
         margin-left: 4px;
         font-size: 10px;
@@ -348,7 +348,7 @@
       }
 
       &.desc::after {
-        content: '\25BC';
+        content: "\25BC";
         display: inline-block;
         margin-left: 4px;
         font-size: 10px;
@@ -674,7 +674,7 @@ $deaths-incomplete: #d0b9df;
   position: relative;
 }
 .chart-container.chart-error::after {
-  content: 'Not enough data';
+  content: "Not enough data";
   display: block;
   position: absolute;
   top: 0;
@@ -766,8 +766,7 @@ $deaths-incomplete: #d0b9df;
   top: 0;
   left: 0;
   width: 100%;
-  background: #fff;
-  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.3);
+  background: $city-light-grey;
 }
 
 .nav-container {
@@ -797,17 +796,24 @@ $deaths-incomplete: #d0b9df;
   flex-grow: 0;
 
   a {
-    padding: 12px 16px 10px;
-    border: 2px solid #000;
-    font-size: 16px;
-    color: #000;
-    background: #fff;
+    padding: 5px 20px 3px;
+    border: 2px solid #a40501;
+    font-size: 20px;
+    color: #a40501;
+    background: $city-white;
     display: inline-block;
     text-decoration: none;
     text-transform: uppercase;
     line-height: 1em;
     @include boldface();
-    letter-spacing: 3px;
+    letter-spacing: 1.66px;
+
+    &:hover {
+      transition: 0.2s;
+      border-color: $city-white;
+      color: $city-white;
+      background-color: $city-black;
+    }
   }
 }
 
@@ -890,7 +896,7 @@ a.about-link {
   }
 
   a {
-    font-family: 'Sharp Grotesk', Helvetica, sans-serif;
+    font-family: "Sharp Grotesk", Helvetica, sans-serif;
     width: 100%;
     max-width: 200px;
     margin: 0 auto;
