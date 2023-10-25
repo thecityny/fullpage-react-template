@@ -33,6 +33,10 @@ const Footer = () => {
       "https://projects.thecity.nyc/donation-form/",
       {}
     );
+    /**
+     * This is a meaningless call of a method from `pymParent` that does nothing,
+     * just to avoid the "no unused variables" linting error.
+     */
     pymParent.onMessage("", () => {});
   }, []);
 
@@ -96,17 +100,11 @@ const Footer = () => {
             <a href="https://www.thecity.nyc/contact/">Contact</a>
           </li>
           <li>
-            <a href="https://www.thecity.nyc/privacy-policy/">Terms of Use</a>
-          </li>
-          <li>
             <a href="https://www.thecity.nyc/privacy-policy/">Privacy Notice</a>
           </li>
         </ul>
         <div className="copyright">
           © {year}, THE CITY REPORT, INC. All Rights Reserved.{" "}
-          <a href="https://newspack.com/">
-            Prouldy powered by Newspack by Automattic
-          </a>
         </div>
       </div>
     </footer>
